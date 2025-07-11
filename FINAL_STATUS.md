@@ -1,5 +1,9 @@
 # 📋 Final Project Status: Deezer Downloader
 
+## ⚠️ **CRITICAL LIMITATION: Full Track Downloads Do Not Work**
+
+**This tool only supports 30-second preview downloads.** Full track downloads are impossible due to Deezer's 2024 CDN infrastructure changes. All CDN endpoints for full tracks are inaccessible.
+
 ## 🎯 **Honest Assessment: State-of-the-Art Implementation with Current Limitations**
 
 ### ✅ **What We Successfully Achieved**

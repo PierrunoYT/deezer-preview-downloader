@@ -1,8 +1,12 @@
 # Deezer Downloader Development Log
 
+## ⚠️ **CRITICAL LIMITATION: Full Track Downloads Do Not Work**
+
+**This tool only supports 30-second preview downloads.** Full track downloads are impossible due to Deezer's 2024 CDN infrastructure changes. All CDN endpoints for full tracks are inaccessible.
+
 ## Project Overview
 
-This project implements a **state-of-the-art (SOTA) Deezer downloader** that works with Deezer's 2024 authentication and API changes. The script successfully handles the modern token-based authentication system and provides comprehensive fallback mechanisms.
+This project implements a **state-of-the-art (SOTA) Deezer downloader** that works with Deezer's 2024 authentication and API changes. The script successfully handles the modern token-based authentication system and provides comprehensive fallback mechanisms for preview downloads.
 
 ## 🎯 **State-of-the-Art Status: ✅ CONFIRMED**
 

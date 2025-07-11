@@ -1,11 +1,15 @@
 # 🎉 Project Complete: State-of-the-Art Deezer Downloader
 
+## ⚠️ **CRITICAL LIMITATION: Full Track Downloads Do Not Work**
+
+**This tool only supports 30-second preview downloads.** Full track downloads are impossible due to Deezer's 2024 CDN infrastructure changes. All CDN endpoints for full tracks are inaccessible.
+
 ## 📊 **Final Status: ✅ SUCCESS (with 2024 limitations)**
 
-We have successfully created a **state-of-the-art Deezer downloader** that represents the current pinnacle of Deezer downloading technology in 2024.
+We have successfully created a **state-of-the-art Deezer downloader** that represents the current pinnacle of Deezer downloading technology in 2024 for preview downloads.
 
 ### ⚠️ **Important Note: Download Limitations**
-- **Full Track Downloads**: ❌ Not working due to Deezer's 2024 CDN infrastructure changes
+- **Full Track Downloads**: ❌ **NOT WORKING** - Deezer's 2024 CDN infrastructure blocks all full track access
 - **Preview Downloads**: ✅ Working perfectly (30-second clips)
 - **Authentication & Metadata**: ✅ Fully functional
 - **Technical Implementation**: ✅ State-of-the-art and production-ready

@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## ⚠️ **CRITICAL LIMITATION: Full Track Downloads Do Not Work**
+
+**This tool only supports 30-second preview downloads.** Full track downloads are impossible due to Deezer's 2024 CDN infrastructure changes.
+
+## [1.0.1] - 2025-07-11 - Preview Download Fix
+
+### 🔧 **Bug Fixes**
+- **Fixed Preview Downloads** - Resolved issue where preview downloads were corrupted due to unnecessary Blowfish decryption
+- **Improved Download Logic** - Preview URLs now bypass decryption since they're already plain MP3 files
+- **Enhanced Error Handling** - Better detection and handling of preview vs full track downloads
+
 ## [1.0.0] - 2025-07-11 - Initial Release
 
 ### 🎉 **Major Features**
