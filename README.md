@@ -5,13 +5,15 @@ A Python script to download tracks from Deezer using the ARL token with support 
 ## Features
 
 - ✅ **2024 Authentication Support** - Works with Deezer's updated API and token system
-- ✅ **Multiple Quality Levels** - Supports 320kbps, 256kbps, and 128kbps MP3 downloads
-- ✅ **Blowfish Decryption** - Proper decryption for encrypted tracks
+- ✅ **Track Metadata Retrieval** - Complete track information (title, artist, duration, etc.)
+- ✅ **Preview Downloads** - 30-second track previews (currently working)
+- ⚠️ **Full Track Downloads** - Currently not working due to Deezer's 2024 CDN changes
+- ✅ **Multiple Quality Detection** - Attempts 320kbps, 256kbps, and 128kbps
+- ✅ **Blowfish Decryption** - Proper decryption implementation for encrypted tracks
 - ✅ **URL Parsing** - Supports both direct track IDs and Deezer URLs
 - ✅ **Progress Tracking** - Real-time download progress display
 - ✅ **Safe Filenames** - Automatic filename sanitization
 - ✅ **Comprehensive Logging** - Detailed error handling and debugging
-- ✅ **Fallback Support** - Falls back to preview downloads when full tracks unavailable
 
 ## Setup
 
@@ -76,7 +78,7 @@ python deezer.py <track_id_or_url> [-o output_directory] [-v]
 ### Examples
 
 ```bash
-# Download using track ID
+# Download track preview (30 seconds) using track ID
 python deezer.py 123456789
 
 # Download using full Deezer URL
@@ -91,6 +93,9 @@ python deezer.py 123456789 -o ./downloads
 # Enable verbose logging for debugging
 python deezer.py 123456789 -v
 ```
+
+### ⚠️ **Important Note**
+Currently, only **30-second preview downloads** are working due to Deezer's 2024 CDN infrastructure changes. The script will automatically fall back to preview downloads when full tracks are unavailable.
 
 ## Troubleshooting
 
@@ -110,9 +115,11 @@ python deezer.py 123456789 -v
    - Solution: Try using a VPN to a different country
    - Verify the track exists and is playable on Deezer website
 
-4. **"Could not generate download URL"**
-   - Track may not be available in any quality level
-   - Solution: Try a different track or check if your account has proper access
+4. **"Could not generate download URL" / Only preview downloads work**
+   - **This is expected behavior in 2024** - Deezer has changed their CDN infrastructure
+   - Full track downloads are currently not possible due to DNS resolution issues with CDN domains
+   - The script automatically falls back to 30-second preview downloads
+   - Solution: This is a known limitation, not a bug
 
 5. **Download fails or produces corrupted files**
    - Network issues or incomplete download
@@ -121,6 +128,13 @@ python deezer.py 123456789 -v
 6. **"Failed to get API token"**
    - Session establishment failed
    - Solution: Check if Deezer is accessible from your location, try with VPN
+
+### ⚠️ **Current Limitations (2024)**
+
+- **Full Track Downloads**: Not working due to Deezer's CDN infrastructure changes
+- **Preview Downloads**: Working perfectly (30-second clips)
+- **Track Metadata**: Fully functional
+- **Authentication**: Fully functional with 2024 system
 
 ### Dependencies
 

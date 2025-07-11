@@ -112,21 +112,29 @@ This implementation represents the **current state-of-the-art** for Deezer downl
 - Full authentication with Deezer's 2024 system
 - Track metadata retrieval (title, artist, duration, etc.)
 - Preview downloads (30-second clips) - **100% success rate**
-- Multiple quality level attempts
+- Multiple quality level detection and attempts
 - Proper filename sanitization
 - Progress tracking and logging
 - Error recovery and fallbacks
+- Comprehensive debugging and logging
 
-### ⚠️ **Limitations**
-- Full track downloads limited by Deezer's 2024 CDN changes
-- Preview-only downloads due to infrastructure changes
+### ❌ **Not Working (2024 Limitations)**
+- **Full track downloads** - Deezer's CDN domains (`e-cdns-proxy-*.dzcdn.net`) no longer resolve
+- **High-quality downloads** - Only preview quality available due to infrastructure changes
+- **Complete track files** - Limited to 30-second previews by Deezer's current system
+
+### ⚠️ **Technical Limitations**
+- **CDN Infrastructure**: Deezer changed their content delivery network in 2024
+- **DNS Resolution**: CDN domains return NXDOMAIN errors
+- **Token Limitations**: Even valid tokens cannot access full track URLs
+- **API Restrictions**: Media API only provides preview URLs for full tracks
 - Requires valid Deezer account and fresh ARL tokens
 
 ### 🔮 **Future Potential**
 - Monitor for new CDN endpoints or API changes
-- Implement additional fallback mechanisms
-- Add support for playlists and albums
-- Enhance quality detection and selection
+- Implement additional fallback mechanisms if new endpoints become available
+- Add support for playlists and albums (metadata only)
+- Enhance quality detection and selection for when full downloads return
 
 ## 🏆 **Achievement Summary**
 

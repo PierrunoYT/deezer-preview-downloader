@@ -7,8 +7,10 @@ All notable changes to this project will be documented in this file.
 ### 🎉 **Major Features**
 - **Complete Deezer Downloader Implementation** - Full-featured downloader with 2024 compatibility
 - **Modern Authentication System** - Supports Deezer's latest token-based API
-- **Multi-Quality Support** - Attempts 320kbps, 256kbps, and 128kbps downloads
-- **Blowfish Decryption** - Proper decryption for encrypted track data
+- **Track Metadata Retrieval** - Complete track information extraction
+- **Preview Downloads** - 30-second track previews (currently working)
+- **Multi-Quality Detection** - Attempts 320kbps, 256kbps, and 128kbps detection
+- **Blowfish Decryption** - Proper decryption implementation for encrypted track data
 - **URL Parsing** - Supports both track IDs and full Deezer URLs
 - **Progress Tracking** - Real-time download progress display
 
@@ -78,8 +80,14 @@ All notable changes to this project will be documented in this file.
 ### 🔄 **Fallback Mechanisms**
 - **Quality Degradation** - Automatic fallback to lower quality levels
 - **URL Generation** - Multiple URL generation methods attempted
-- **Preview Downloads** - 30-second previews when full tracks unavailable
+- **Preview Downloads** - 30-second previews when full tracks unavailable (currently the only working option)
 - **Error Recovery** - Graceful handling of network and API errors
+
+### ⚠️ **Current Limitations (2024)**
+- **Full Track Downloads** - Not working due to Deezer's CDN infrastructure changes
+- **CDN Access** - `e-cdns-proxy-*.dzcdn.net` domains no longer resolve
+- **Preview Only** - Currently limited to 30-second preview downloads
+- **Quality Restrictions** - Full quality tracks not accessible through current CDN endpoints
 
 ### 📊 **Performance**
 - **Efficient Downloads** - Chunked downloading with progress tracking
