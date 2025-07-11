@@ -144,3 +144,11 @@ Currently, only **30-second preview downloads** are working due to Deezer's 2024
 
 - `requests` - For HTTP requests
 - `pycryptodome` - For Blowfish decryption
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Disclaimer
+
+This tool is for educational purposes only. Users are responsible for complying with Deezer's Terms of Service and applicable copyright laws. The authors are not responsible for any misuse of this software.
