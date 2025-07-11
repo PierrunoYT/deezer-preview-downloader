@@ -6,6 +6,19 @@ A Python script to download tracks from Deezer using the ARL token with support 
 
 **This tool currently only supports 30-second preview downloads.** Full track downloads are not possible due to Deezer's 2024 CDN infrastructure changes. All CDN endpoints for full tracks are inaccessible.
 
+## 📚 **Educational Purpose & Legal Disclaimer**
+
+**This tool is intended for educational and research purposes only.** By using this software, you acknowledge and agree that:
+
+- ✅ You will **comply with Deezer's Terms of Service** and all applicable laws
+- ✅ You will **respect copyright laws** and intellectual property rights
+- ✅ You will **only download content you have legal rights to access**
+- ✅ You understand this tool is for **learning about API interactions** and **audio processing**
+- ❌ **Commercial use or copyright infringement is strictly prohibited**
+- ❌ **The authors are not responsible for any misuse** of this software
+
+**Use responsibly and ethically.**
+
 ## Features
 
 - ✅ **2024 Authentication Support** - Works with Deezer's updated API and token system

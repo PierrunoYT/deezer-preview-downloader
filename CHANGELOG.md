@@ -6,6 +6,10 @@ All notable changes to this project will be documented in this file.
 
 **This tool only supports 30-second preview downloads.** Full track downloads are impossible due to Deezer's 2024 CDN infrastructure changes.
 
+## 📚 **Educational Purpose & Legal Disclaimer**
+
+**This tool is intended for educational and research purposes only.** Users must comply with Deezer's Terms of Service, respect copyright laws, and use this software responsibly. Commercial use or copyright infringement is strictly prohibited. The authors are not responsible for any misuse of this software.
+
 ## [1.0.1] - 2025-07-11 - Preview Download Fix
 
 ### 🔧 **Bug Fixes**

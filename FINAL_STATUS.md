@@ -4,6 +4,10 @@
 
 **This tool only supports 30-second preview downloads.** Full track downloads are impossible due to Deezer's 2024 CDN infrastructure changes. All CDN endpoints for full tracks are inaccessible.
 
+## 📚 **Educational Purpose & Legal Disclaimer**
+
+**This tool is intended for educational and research purposes only.** Users must comply with Deezer's Terms of Service, respect copyright laws, and use this software responsibly. Commercial use or copyright infringement is strictly prohibited. The authors are not responsible for any misuse of this software.
+
 ## 🎯 **Honest Assessment: State-of-the-Art Implementation with Current Limitations**
 
 ### ✅ **What We Successfully Achieved**
