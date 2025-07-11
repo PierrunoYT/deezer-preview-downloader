@@ -462,6 +462,9 @@ def download_track(track_id, token, output_dir='.'):
                 if download_url:
                     break
 
+    # Check if we're using a preview URL (which doesn't need decryption)
+    is_preview_url = False
+
     if not download_url:
         # Try fallback: use preview URL if available
         media_list = track_details.get('MEDIA', [])
@@ -474,12 +477,13 @@ def download_track(track_id, token, output_dir='.'):
         if preview_url:
             logger.warning('Using preview URL as fallback (30-second preview only)')
             download_url = preview_url
+            is_preview_url = True
         else:
             logger.error('Could not generate any download URL')
             return False
 
-    # Generate decryption key
-    blowfish_key = generate_blowfish_key(track_id)
+    # Generate decryption key (only needed for encrypted tracks, not previews)
+    blowfish_key = generate_blowfish_key(track_id) if not is_preview_url else None
 
     try:
         headers = {
@@ -505,30 +509,42 @@ def download_track(track_id, token, output_dir='.'):
         downloaded = 0
 
         with open(filepath, 'wb') as file:
-            buffer = bytearray()
+            if is_preview_url:
+                # Preview URLs are plain MP3 files - no decryption needed
+                for chunk in response.iter_content(chunk_size=8192):
+                    if chunk:
+                        file.write(chunk)
+                        downloaded += len(chunk)
 
-            for chunk in response.iter_content(chunk_size=8192):
-                if chunk:
-                    buffer.extend(chunk)
-                    downloaded += len(chunk)
+                        if total_size > 0:
+                            percent = (downloaded / total_size) * 100
+                            print(f'\rDownloading: {percent:.1f}%', end='', flush=True)
+            else:
+                # Full tracks need Blowfish decryption
+                buffer = bytearray()
 
-                    # Process complete 2048-byte blocks
-                    while len(buffer) >= 2048:
-                        block = bytes(buffer[:2048])
-                        buffer = buffer[2048:]
+                for chunk in response.iter_content(chunk_size=8192):
+                    if chunk:
+                        buffer.extend(chunk)
+                        downloaded += len(chunk)
 
-                        # Decrypt if needed
-                        decrypted_block = decrypt_track_chunk(block, blowfish_key)
-                        file.write(decrypted_block)
+                        # Process complete 2048-byte blocks
+                        while len(buffer) >= 2048:
+                            block = bytes(buffer[:2048])
+                            buffer = buffer[2048:]
 
-                    if total_size > 0:
-                        percent = (downloaded / total_size) * 100
-                        print(f'\rDownloading: {percent:.1f}%', end='', flush=True)
+                            # Decrypt if needed
+                            decrypted_block = decrypt_track_chunk(block, blowfish_key)
+                            file.write(decrypted_block)
 
-            # Write remaining buffer
-            if buffer:
-                decrypted_remaining = decrypt_track_chunk(bytes(buffer), blowfish_key)
-                file.write(decrypted_remaining)
+                        if total_size > 0:
+                            percent = (downloaded / total_size) * 100
+                            print(f'\rDownloading: {percent:.1f}%', end='', flush=True)
+
+                # Write remaining buffer
+                if buffer:
+                    decrypted_remaining = decrypt_track_chunk(bytes(buffer), blowfish_key)
+                    file.write(decrypted_remaining)
 
         print()  # New line after progress
         logger.info(f'Downloaded: {filename}')
